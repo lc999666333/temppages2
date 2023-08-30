@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0"> 
+    <title>跳转页面</title>
+</head>
+<body>
+    <h1>内容展示：</h1>
+    <p id="param"></p>
+    <iframe id="myFrame" name="myFrame" src="" style="width: 100%; height: 400px;"></iframe>
+    <a id="link" href="#">。</a>
+
+    <script>
+        // 获取URL中的参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const to = urlParams.get('to');
+
+        // 在页面中展示参数
+        const paramElement = document.getElementById('param');
+        paramElement.textContent = to;
+
+        // 设置链接的目标
+        const linkElement = document.getElementById('link');
+        linkElement.href = to;
+        const iframeElement = document.getElementById('myFrame');
+        iframeElement.src = to;
+    </script>
+</body>
+</html>
